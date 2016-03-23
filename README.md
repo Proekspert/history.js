@@ -30,6 +30,20 @@ Please create an issue if something doesn't work or if there is a browser specif
 - Provide a forwards-compatible experience for HTML4 States to HTML5 States (so if a hash-fallbacked url is accessed by a HTML5 browser it is naturally transformed into its non-hashed url equivalent)
 - Provide support for as many javascript frameworks as possible via adapters; especially [Dojo](http://dojotoolkit.org/), [ExtJS](http://www.sencha.com/), [jQuery](http://jquery.com/), [MooTools](http://mootools.net/), [Right.js](http://rightjs.org/) and [Zepto](http://zeptojs.com/).
 
+## Building history.js
+
+### Install with node
+```
+npm install
+```
+### Install coffee script
+```
+npm install -g coffee-script
+```
+### Run bundle and compression
+```
+coffee buildr-uncompressed.coffee & coffee buildr.coffee
+```
 
 ## Quick Install
 
@@ -42,13 +56,8 @@ If you don't have access to your server, or just want to try out the Ajaxify scr
 ### Via Ruby On Rails Gem
 If you are using Rails, then the easiest way for you to try History.js would be to use [Wiselinks](https://github.com/igor-alexandrov/wiselinks) gem. Wiselinks integrates  into Rails application and allows you to start using History.js with three lines of code.
 
-
 ## Direct Install
 
-### Install with node
-```
-npm install
-```
 ### Working with History.js directly
 
 ``` javascript
