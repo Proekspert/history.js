@@ -18,11 +18,13 @@
 		setTimeout = window.setTimeout||setTimeout,
 		clearTimeout = window.clearTimeout||clearTimeout,
 		setInterval = window.setInterval||setInterval,
-		History = window.History = window.History||{}; // Public History Object
+		History = window.History = window.History||{}, // Public History Object
+		console = window.console||undefined;
 
 	// Check Existence
 	if ( typeof History.initHtml4 !== 'undefined' ) {
-		throw new Error('History.js HTML4 Support has already been loaded...');
+		console.log('History.js HTML4 Support has already been loaded...');
+		return;
 	}
 
 
@@ -351,7 +353,7 @@
 
 							// Equalise
 							lastIframeHash = iframeHash;
-							
+
 							// If there is no iframe hash that means we're at the original
 							// iframe state.
 							// And if there was a hash on the original request, the original
@@ -569,7 +571,7 @@
 				if ( !History.isHashEqual(newStateHash, html4Hash) && !History.isHashEqual(newStateHash, History.getShortUrl(History.getLocationHref())) ) {
 					History.setHash(newStateHash,false);
 				}
-				
+
 				History.busy(false);
 
 				// End pushState closure
@@ -631,13 +633,13 @@
 					// Store the newState
 					History.storeState(newState);
 					History.expectedStateId = newState.id;
-	
+
 					// Recycle the State
 					History.recycleState(newState);
-	
+
 					// Force update of the title
 					History.setTitle(newState);
-					
+
 					// Update HTML5 State
 					History.saveState(newState);
 

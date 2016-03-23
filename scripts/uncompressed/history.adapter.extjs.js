@@ -12,22 +12,24 @@
     // Localise Globals
     var
         History = window.History = window.History||{},
-        Ext = window.Ext;
+        Ext = window.Ext,
+        console = window.console||undefined; // Prevent a JSLint complain
 
     window.JSON = {
         stringify: Ext.JSON.encode,
         parse: Ext.JSON.decode
     };
-    
+
     // Check Existence
     if ( typeof History.Adapter !== 'undefined' ) {
-        throw new Error('History.js Adapter has already been loaded...');
+      console.log('History.js Adapter has already been loaded...');
+      return;
     }
 
     // Add the Adapter
     History.Adapter = {
         observables: {},
-        
+
         /**
          * History.Adapter.bind(el,event,callback)
          * @param {Element|string} el
@@ -38,7 +40,7 @@
          */
         bind: function(element,eventName,callback,scope){
             Ext.EventManager.addListener(element, eventName, callback, scope);
-            
+
             //bind an observable to the element that will let us "trigger" events on it
             var id = Ext.id(element, 'history-'), observable = this.observables[id];
             if (!observable) {

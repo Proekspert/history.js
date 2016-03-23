@@ -12,11 +12,13 @@
 	// Localise Globals
 	var
 		History = window.History = window.History||{},
-		jQuery = window.jQuery;
+		jQuery = window.jQuery,
+		console = window.console||undefined; // Prevent a JSLint complain
 
 	// Check Existence
 	if ( typeof History.Adapter !== 'undefined' ) {
-		throw new Error('History.js Adapter has already been loaded...');
+		console.log('History.js Adapter has already been loaded...');
+		return;
 	}
 
 	// Add the Adapter
@@ -74,4 +76,3 @@
 	}
 
 })(window);
-

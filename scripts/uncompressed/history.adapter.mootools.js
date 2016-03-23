@@ -13,11 +13,13 @@
 	var
 		History = window.History = window.History||{},
 		MooTools = window.MooTools,
-		Element = window.Element;
+		Element = window.Element,
+		console = window.console||undefined; // Prevent a JSLint complain
 
 	// Check Existence
 	if ( typeof History.Adapter !== 'undefined' ) {
-		throw new Error('History.js Adapter has already been loaded...');
+		console.log('History.js Adapter has already been loaded...');
+		return;
 	}
 
 	// Make MooTools aware of History.js Events

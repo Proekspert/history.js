@@ -12,11 +12,13 @@
 	// Localise Globals
 	var
 		History = window.History = window.History||{},
-		jQuery = window.jQuery;
+		jQuery = window.jQuery,
+		console = window.console||undefined; // Prevent a JSLint complain
 
 	// Check Existence
 	if ( typeof History.Adapter !== 'undefined' ) {
-		throw new Error('History.js Adapter has already been loaded...');
+		console.log('History.js Adapter has already been loaded...');
+		return;
 	}
 
 	// Add the Adapter
@@ -74,7 +76,6 @@
 	}
 
 })(window);
-
 /**
  * History.js Core
  * @author Benjamin Arthur Lupton <contact@balupton.com>
@@ -117,7 +118,8 @@
 
 	// Check Existence
 	if ( typeof History.init !== 'undefined' ) {
-		throw new Error('History.js Core has already been loaded...');
+		console.log('History.js Core has already been loaded...');
+		return;
 	}
 
 	// Initialise History
@@ -667,7 +669,7 @@
 
 			if (doc.URL.indexOf('#') == -1 && doc.location.href.indexOf('#') != -1)
 				return doc.location.href;
-			
+
 			return doc.URL || doc.location.href;
 		};
 
@@ -978,7 +980,7 @@
 			var id,parts,url, tmp;
 
 			// Extract
-			
+
 			// If the URL has a #, use the id from before the #
 			if (url_or_hash.indexOf('#') != -1)
 			{
@@ -988,7 +990,7 @@
 			{
 				tmp = url_or_hash;
 			}
-			
+
 			parts = /(.*)\&_suid=([0-9]+)$/.exec(tmp);
 			url = parts ? (parts[1]||url_or_hash) : url_or_hash;
 			id = parts ? String(parts[2]||'') : '';
@@ -1188,7 +1190,7 @@
 			// Return State
 			return State;
 		};
-		
+
 		/**
 		 * History.getCurrentIndex()
 		 * Gets the current index
@@ -1197,7 +1199,7 @@
 		History.getCurrentIndex = function(){
 			// Prepare
 			var index = null;
-			
+
 			// No states saved
 			if(History.savedStates.length < 1) {
 				index = 0;
