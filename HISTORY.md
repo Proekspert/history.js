@@ -1,7 +1,7 @@
 ## History
 
 - Apr 4 2017
-    - A
+    - Replaced call to deprecated jQuery.bind
      
 - v1.8b2 - June 22 2013
     - Introduced uncompressed bundled files #287
