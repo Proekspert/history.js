@@ -1,5 +1,8 @@
 ## History
 
+- Apr 4 2017
+    - A
+     
 - v1.8b2 - June 22 2013
     - Introduced uncompressed bundled files #287
     - Copied component.json to bower.json #291 and used right tag #286
